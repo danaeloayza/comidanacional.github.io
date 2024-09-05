@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAJADITO</title>
+    <style>
+        body {
+            background-color: #b19b21;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #dedcdc;
+        }
+        .content {
+            background-color: #56090971;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(214, 54, 54);
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #00e1ff;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(228, 228, 228);
+            background-color: rgba(76, 75, 75, 0.816);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f4f2f2;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #232121;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MAJADITO</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>El majado o majado de cerdo es un plato típico de la gastronomía boliviana, especialmente popular en la región de Santa Cruz. Es conocido por su sabor contundente y su preparación a base de cerdo desmenuzado.
+
+                Ingredientes Principales:
+                Carne de cerdo: Cocida y desmenuzada.
+                Arroz: Cocido.
+                Papas: Frecuentemente se usan papas en rodajas o trozos.
+                Cebolla: Picada.
+                Ajo: Para sazonar.
+                Tomate: Picado en cubos.
+                Pimientos: Cortados en tiras.
+                Ají rojo: Para dar color y sabor.
+                Comino y orégano: Para sazonar.
+                Aceite: Para freír.
+                Caldo: De cerdo o de pollo.
+                Preparación:
+                Cocción de la carne: La carne de cerdo se cocina con agua y sal hasta que esté tierna. Luego, se desmenuza.
+                Preparación de los vegetales: En una sartén, se saltean la cebolla, el ajo, el tomate y los pimientos hasta que estén tiernos.
+                Mezcla de ingredientes: Se añade la carne desmenuzada a los vegetales salteados. Se incorpora el ají rojo y los condimentos como comino y orégano. Se mezcla bien y se cocina a fuego lento para que los sabores se integren.
+                Añadir papas: Las papas pueden ser freídas por separado y luego incorporadas al guiso o cocidas junto con el majado.
+                Incorporación del arroz: Finalmente, se añade el arroz cocido a la mezcla, combinando todo bien. Se ajusta el sazón con más sal o especias si es necesario.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="majadito.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">Comida tipica cruceña</div>
+            </div>
+            <div>
+                <img src="MA1.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">comida muy conocida y rica</div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+

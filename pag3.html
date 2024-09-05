@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saice</title>
+    <style>
+        body {
+            background-color: #8e8f94;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #dedcdc;
+        }
+        .content {
+            background-color: #b6080871;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(214, 54, 54);
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #00e1ff;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(228, 228, 228);
+            background-color: rgba(76, 75, 75, 0.816);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f4f2f2;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #232121;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SAICE</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>El saice es otro plato tradicional de la gastronomía boliviana, especialmente popular en la región de Cochabamba. Es un guiso a base de carne de res, maíz y una variedad de vegetales, que se caracteriza por su sabor robusto y su textura sustanciosa.
+
+                Ingredientes Principales:
+                Carne de res: Generalmente se usa carne de res cortada en cubos.
+                Maíz: Puede ser maíz en grano o mote (maíz cocido y deshidratado).
+                Papas: Cortadas en trozos.
+                Zanahorias: También cortadas en trozos.
+                Cebolla: Picada.
+                Ajo: Para dar sabor.
+                Tomate: Picado en cubos.
+                Pimientos: Cortados en tiras.
+                Ají rojo o colorado: Para dar color y sabor.
+                Comino y orégano: Para sazonar.
+                Caldo: De carne, para cocinar el guiso.
+                Papas: Cortadas en trozos.
+                Preparación:
+                Preparación de la carne: La carne de res se cocina en una olla con agua y sal hasta que esté tierna. Luego se retira y se corta en cubos.
+                Cocción del maíz: Si se usa mote, debe cocerse previamente. Si se usa maíz seco, se debe remojar y cocinar hasta que esté suave.
+                Salteado de vegetales: En una sartén aparte, se saltean la cebolla, el ajo, el tomate, y los pimientos. Se añaden los condimentos como el comino y el orégano.
+                Unión de ingredientes: Se agregan los vegetales salteados, las papas, las zanahorias y el maíz al estofado de carne. Se incorpora el caldo y se cocina todo junto hasta que las papas y las zanahorias estén tiernas y los sabores se mezclen bien.
+                Ajuste de sazón: Se ajusta el sazón al gusto, añadiendo más sal, ají, o cualquier otro condimento necesario.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="saice.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">saice un plato tipico tarijeño</div>
+            </div>
+            <div>
+                <img src="sa1.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">un plato muy conocido</div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+

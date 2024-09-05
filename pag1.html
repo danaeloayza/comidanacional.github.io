@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIQUE A LO MACHO</title>
+    <style>
+        body {
+            background-color: #304be4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #dedcdc;
+        }
+        .content {
+            background-color: #8b4c4c71;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(214, 54, 54);
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #00e1ff;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(228, 228, 228);
+            background-color: rgba(76, 75, 75, 0.816);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f4f2f2;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #232121;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PIQUE A LO MACHO</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>El pique a lo macho es un plato emblemático de la gastronomía boliviana, conocido por su sabor contundente y su generosa porción. Es originario de Cochabamba, aunque se ha popularizado en todo el país.
+
+                Ingredientes Principales:
+                Carne de res: Cortada en tiras o cubos.
+                Salchichas: Frecuentemente se utilizan salchichas de tipo vienesa, también cortadas en rodajas.
+                Papas fritas: Una base esencial del plato.
+                Cebolla: Cortada en juliana.
+                Tomate: También cortado en rodajas o cubos.
+                Locoto: Un tipo de ají picante típico de Bolivia, cortado en rodajas finas (opcional para los que prefieren el picante).
+                Pimientos: Verdes o rojos, cortados en tiras.
+                Huevos: A veces se añaden huevos duros cortados en rodajas.
+                Salsa: A base de mostaza, cerveza, y otros condimentos.
+                Preparación:
+                Cocción de la carne: Se fríe la carne de res junto con las salchichas, sazonándolas con sal, pimienta y ajo.
+                Salteado de vegetales: En la misma sartén, se saltean la cebolla, el tomate, el locoto, y los pimientos hasta que estén tiernos.
+                Montaje: Se sirven las papas fritas como base en un plato grande. Sobre ellas, se coloca la mezcla de carne y salchichas, seguida por los vegetales salteados.
+                Salsa: Se vierte la salsa sobre el conjunto, y se puede añadir huevo duro en rodajas para finalizar.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="Pique.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">FOTO DEL PIQUE</div>
+            </div>
+            <div>
+                <img src="PI1.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">PLATO TRADICIONAL DE COCHABAMBA</div>
+            </div>
+          
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+
